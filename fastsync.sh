@@ -23,6 +23,8 @@ else
   longagominutes=`expr $longago / 60`
   #NUM_SECS=`expr $HOW_LONG % 60`
   echo "Up-to-date snapshot already downloaded $longagominutes minutes ago"
+  sleep 5; # Wait until the miner is fully functional
+
 fi
 
 
@@ -34,7 +36,7 @@ sudo docker cp ~/miner_load $minername:/opt/miner/bin/miner_load
 
 echo -n "Pausing sync... "
 sudo docker exec  $minername  miner repair sync_pause
-echo -n "Cancelleing pending sync... "
+echo -n "Cancelling pending sync... "
 sudo docker exec  $minername  miner repair sync_cancel
 
 echo "Loading snapshot. This can take up to 20 minutes"
@@ -50,25 +52,24 @@ now=`date +%s`
 while :
 do
     result=$(cat /tmp/load_result);
-	  if [ "$result" = "ok" ]; then
+    if [ "$result" = "ok" ]; then
        modified=`stat -c %Y /tmp/load_result`
-       longago=`expr $modified-$now`
+       longago=`expr $modified - $now`
        longagominutes=`expr $longago / 60`
        echo " "
-  		 echo "Snapshot loaded in $longagominutes minutes"
-  		 sudo rm -f /home/pi/hnt/miner/snap/snap-$newheight
-  		 rm /tmp/load_result
+       echo "Snapshot loaded in $longagominutes minutes"
+       sudo rm -f /home/pi/hnt/miner/snap/snap-$newheight
+       rm /tmp/load_result
        echo -n "Resuming sync... "
        docker exec  $minername  miner repair sync_resume
        echo "Done!"
        break;
-		elif [ "$result" = "" ];then
-      echo -n "."
+    elif [ "$result" = "" ];then
+       echo -n "."
     else
-		   echo "Error: Snapshot could not be loaded. Try again"
+       echo "Error: Snapshot could not be loaded. Try again"
        break;
-
-  	fi
-	sleep 10
+    fi
+    sleep 10
 done
 
