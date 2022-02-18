@@ -7,6 +7,6 @@ fi
 
 echo "Restoring backup of sys.config"
 cp /home/pi/hnt/miner/configs/sys.config /home/pi/hnt/miner/configs/sys.config.bak
-echo "Restarting miner"
+echo -n "Restarting miner... "
 docker restart miner
 echo "Done!"
