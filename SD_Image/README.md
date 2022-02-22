@@ -17,7 +17,7 @@ The following has been added/modified:
 - Cleared blockchain
 - Compressed to a 2.8 Gb zip file
 
-## Packer Forwarder Version
+## Packet Forwarder Version
 
 The packet forward config files are for the Euroepan V1 card.
 
