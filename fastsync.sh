@@ -39,6 +39,9 @@ sudo docker exec  $minername  miner repair sync_pause
 echo -n "Cancelling pending sync... "
 sudo docker exec  $minername  miner repair sync_cancel
 
+echo "Deleting stale snapshots"
+sudo rm -f /home/pi/hnt/miner/snap/*
+
 echo "Loading snapshot. This can take up to 20 minutes"
 sudo cp /tmp/snap-$newheight /home/pi/hnt/miner/snap/snap-$newheight
 

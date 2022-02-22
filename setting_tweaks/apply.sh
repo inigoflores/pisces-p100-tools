@@ -16,5 +16,5 @@ echo "Restarting miner"
 docker restart miner
 echo "Done!"
 echo -e "In order to verify that the changes are working, run every few minutes \n"
-echo -e "docker exec miner miner peer book -c \n"
+echo -e "sudo docker exec miner miner peer book -c \n"
 echo "You should see a slow increase in the number of peers until it reaches around 200,000 in several hours"
