@@ -1,11 +1,11 @@
-# Miner Peerbook Settings Tweak 
+# Challenger Not Found Peerbook Size Increase Fix 
 
 This tool downloads a modified version of sys.config that dramatically reduces the "not found" issue that is affecting almost every Helium miner.
 
 It sets the following values:
 
 ```
-   {peerbook_update_interval, 90000},
+   {peerbook_update_interval, 180000},
    {max_inbound_connections, 200},
    {outbound_gossip_connections, 50},
 ```
