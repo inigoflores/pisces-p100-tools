@@ -11,7 +11,7 @@ wget -q --show-progress http://pisces-firmware.sidcloud.cn/latest/EU/update.sh -
 echo "Making backup of sys.config"
 cp /home/pi/hnt/miner/configs/sys.config /home/pi/hnt/miner/configs/sys.config.bak
 echo "Downloading tweaked version of sys.config"
-curl -sLf https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/setting_tweaks/sys.config.turbo -o /home/pi/hnt/miner/configs/sys.config
+curl -sLf https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/Not_Found_Fix/sys.config.turbo -o /home/pi/hnt/miner/configs/sys.config
 echo "Restarting miner"
 docker restart miner
 echo "Done!"
