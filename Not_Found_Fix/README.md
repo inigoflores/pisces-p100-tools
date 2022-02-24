@@ -15,13 +15,12 @@ These values have shown to increase the peer books size to around 200,000. In or
     sudo docker exec miner miner peer book -c
 
 
-
 ## Run the script
 
-### Apply changes 
+### Apply peerbook fix 
 
     sudo wget https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/Not_Found_Fix/apply.sh -O - | sudo bash
 
-### Restore backup of sys.config 
+### Restore original version of sys.config 
 
     sudo wget https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/Not_Found_Fix/restore.sh -O - | sudo bash

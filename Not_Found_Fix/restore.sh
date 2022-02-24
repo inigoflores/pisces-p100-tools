@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 echo "Restoring backup of sys.config"
-cp /home/pi/hnt/miner/configs/sys.config /home/pi/hnt/miner/configs/sys.config.bak
+curl -sLf https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/Not_Found_Fix/sys.config -o /home/pi/hnt/miner/configs/sys.config
 echo -n "Restarting miner... "
 docker restart miner
 echo "Done!"
