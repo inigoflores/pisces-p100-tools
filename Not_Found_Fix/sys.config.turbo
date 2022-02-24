@@ -10,7 +10,7 @@
      {key, {ecc, [{key_slot, 0}, {onboarding_key_slot, 15}, {bus, "i2c-0"}, {address, 16#60}]}},
      {peerbook_update_interval, 180000},
      {max_inbound_connections, 200},
-     {outbound_gossip_connections, 50},
+     {outbound_gossip_connections, 50}
     ]},
   {miner,
     [
