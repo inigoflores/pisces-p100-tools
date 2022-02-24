@@ -7,7 +7,7 @@ fi
 
 echo "Downloading tweaked version of sys.config"
 curl -sLf https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/Not_Found_Fix/sys.config.turbo -o /home/pi/hnt/miner/configs/sys.config
-echo "Restarting miner"
+echo -n "Restarting miner... "
 docker restart miner
 echo "Done!"
 echo -e "In order to verify that the changes are working, run every few minutes \n"
