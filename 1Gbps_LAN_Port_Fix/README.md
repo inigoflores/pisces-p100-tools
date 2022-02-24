@@ -24,14 +24,14 @@ As per these values:
               0x020       1000baseT Full
 
 
-To make the changes persistent, edit  `/etc/rc.local` and add :
+To make the changes persistent, edit `/etc/rc.local` and add :
 
      # Fix Pisces 1Gb Ethernet problem
      /sbin/ethtool -s eth0 advertise 0x0f &
 
 After the line
 
-      # By default this script does nothing.
+     # By default this script does nothing.
 
 There is probably a better place to implement this change, but I couldn't make it work in `/etc/network/if-pre-up.d/ethtool` .
 
