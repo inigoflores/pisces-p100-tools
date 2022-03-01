@@ -12,5 +12,5 @@ wget https://raw.githubusercontent.com/inigoflores/pisces-p100-tools/main/Packet
 chmod a+x lora_pkt_fwd
 echo "Restarting packet forwarder"
 pkill lora_pkt_+
-nohup ./lora_pkt_fwd &
+nohup ./lora_pkt_fwd >/dev/null 2>&1 &
 
