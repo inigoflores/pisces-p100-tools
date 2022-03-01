@@ -4,6 +4,9 @@ This is an unofficial image for the Pisces P100.
 
 It's based on the [0.18 version provided by Pisces](https://docs.piscesminer.com/pisces-document/resources/p100-firmware-image).
 
+**Note**: This image uses and old version of the packet forwarder binary. If your packet forwarder fails to start, you will need to update it. Instructions in [Packet Forwarder V2](https://github.com/inigoflores/pisces-p100-tools/tree/main/Packet_Forwarder_V2).
+
+
 ## Changes to the Original Image
 
 The following has been added/modified:
@@ -31,6 +34,9 @@ If it's the **US V2 card version,** run:
 
 Currently Pisces has not released config files for the **V3 card** ([see repo](https://github.com/piscesminer/Firmware-script-p100/tree/master/PacketForward/Config)). It's probably safe to assume it uses the above V2 config scripts. 
 
+In case you want to use a **V1 version** (European, there is no V1 US version), run the following:
+
+    sudo wget https://raw.githubusercontent.com/piscesminer/Firmware-script-p100/master/PacketForward/Config/V1/EU868.sh -O - |sudo bash
 
 ## Download
 
