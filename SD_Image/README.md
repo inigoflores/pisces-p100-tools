@@ -2,44 +2,31 @@
 
 This is an unofficial image for the Pisces P100.
 
-It's based on the [0.18 version provided by Pisces](https://docs.piscesminer.com/pisces-document/resources/p100-firmware-image).
-
-**Note**: This image uses and old version of the packet forwarder binary. If your packet forwarder fails to start, you will need to update it. Instructions in [Packet Forwarder V2](https://github.com/inigoflores/pisces-p100-tools/tree/main/Packet_Forwarder_V2).
+It's based on the [0.38 official image provided by Pisces](https://drive.google.com/drive/folders/18AP0SJmIPlgYyl1HHyxLqsD-d1mBpboh).
 
 
-## Changes to the Original Image
+## Features
 
-The following has been added/modified:
+The image includes the following:
 
-- Pisces firmware: 0.37
+- Pisces firmware: 0.40 (miner-arm64_2022.03.07.0_GA)
 - QoL Dashboard: 0.28
-- Miner: miner-arm64_2022.01.29.0_GA
-- 1 Gbps LAN port issue patched
-- Upgraded API to v2
-- Added a service that updates dashboard status data and the public key at boot (avoids the invalid onboarding address error).
-- Cleared blockchain
-- Compressed to a 2.8 Gb zip file
-
-## Packet Forwarder Version
-
-The packet forward config files are for the Euroepan V1 card.
-
-In case you have the **European V2 card,** SSH in and run:
-
-    sudo wget https://raw.githubusercontent.com/piscesminer/Firmware-script-p100/master/PacketForward/Config/V2/EU868.sh -O - |sudo bash
-
-If it's the **US V2 card version,** run:
-
-    sudo wget https://raw.githubusercontent.com/piscesminer/Firmware-script-p100/master/PacketForward/Config/V2/US915.sh -O - | sudo bash
-
-Currently Pisces has not released config files for the **V3 card** ([see repo](https://github.com/piscesminer/Firmware-script-p100/tree/master/PacketForward/Config)). It's probably safe to assume it uses the above V2 config scripts. 
-
-In case you want to use a **V1 version** (European, there is no V1 US version), run the following:
-
-    sudo wget https://raw.githubusercontent.com/piscesminer/Firmware-script-p100/master/PacketForward/Config/V1/EU868.sh -O - |sudo bash
+- Region and LoRa version selection in dashboard
+- 1 Gbps LAN port issue patch
+- API v2
+- Packet Forwarder V2 binary
+- Service that updates dashboard status data and the public key at boot (avoids the `invalid onboarding address` error).
+- Blockchain cleared
+- Compressed to a 3.0 Gb zip file
 
 ## Download
 
-* [Pisces-P100_0_37_EU_QoL_Dashboard.zip](https://drive.google.com/file/d/19qlftQlbSwSWuK9-EOWjHDIrsVwwprye/view?usp=sharing) (2.8 Gb)
+* [pisces-p100_0_40_unofficial_eu_us.zip](https://drive.google.com/drive/folders/1C0kbbBFdLXoclFrY9rE3YvO-El9TFv8Z?usp=sharing) (3.0 Gb)
 
 You can burn this image with [Balena Etcher](https://www.balena.io/etcher/), [Rufus](https://rufus.ie/), [Raspberry Pi Imager](https://www.raspberrypi.com/software/) or other disk imaging tool.
+
+## Configuration
+
+This image is preconfigured to be used in Europe with a V2 LoRa module. If you plan to use it in the US and/or have a different LoRa module version, you can change these settings through the dashboard in Tools -> Change Region.
+
+The LoRa module version can be found printed on top of the module. If neither V2 or V3 is present, then the module is V1. US miners are equiped with V2 & V3. There is no V1 version for US P100s.
